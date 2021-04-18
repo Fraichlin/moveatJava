@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" fx:id="homeAdminPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="controllers.Admin.homeController">
+   <children>
+      <Button fx:id="btnListDemand" layoutX="196.0" layoutY="200.0" onAction="#listDemandCoach" prefHeight="45.0" prefWidth="209.0" text="Demandes d'inscriptions Coachs" />
+      <Button fx:id="btnListCoach" layoutX="127.0" layoutY="115.0" onAction="#listCoach" prefHeight="45.0" prefWidth="120.0" text="Liste des Coachs" />
+      <Button fx:id="btnListMember" layoutX="356.0" layoutY="115.0" onAction="#listMember" prefHeight="45.0" prefWidth="120.0" text="Liste des Membres" />
+      <Label layoutX="230.0" layoutY="29.0" prefHeight="34.0" prefWidth="141.0" text="Home Admin" textAlignment="CENTER" textFill="#f57a07">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

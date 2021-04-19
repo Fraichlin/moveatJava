@@ -20,8 +20,8 @@ public interface IServicesUser {
      public void addMember(Member m);
      public List<Member> listMember(); 
      public void deleteUser(int idUser);
-     public void updateMember(int idMember,Member m);
-     public void updateCoach(int idCoach,Coach c);
+     public void updateMember(Member m);
+     public void updateCoach(Coach c);
      public void blockUser(int idUser);
      public void unblockUser(int idUser);
      public void validCoach(int idCoach);

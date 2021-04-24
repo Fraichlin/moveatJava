@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="moveat.jnlp">
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="MovEat.jnlp">
   <information>
-    <title>moveat</title>
-    <vendor>NGONGANG Loic F</vendor>
+    <title>MovEat</title>
+    <vendor>acer</vendor>
     <description>null</description>
     <offline-allowed/>
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="lib\fontawesomefx-8.2.jar" size="180341" download="eager" />
-    <jar href="moveat.jar" size="7546342" download="eager" />
+    <jar href="MovEat.jar" size="21570" download="eager" />
+    <jar href="lib\fontawesomefx-glyphsbrowser-all-1.0.jar" size="1662483" download="eager" />
+    <jar href="lib\gson-2.8.5.jar" size="241622" download="eager" />
+    <jar href="lib\jfoenix-8.0.10.jar" size="2710207" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\stripe-java-20.47.0.jar" size="3983946" download="eager" />
   </resources>
-  <jfx:javafx-desc  width="800" height="600" main-class="moveat.Moveat"  name="moveat" />
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="MovEat" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="gui.NewFXMain"  name="MovEat" />
   <update check="always"/>
 </jnlp>

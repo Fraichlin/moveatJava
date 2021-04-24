@@ -72,11 +72,12 @@ public class LoginController implements Initializable {
    
                      if("admin".equals(su.searchUser(lbEmail.getText(), lbPassword.getText()).getType())){
                          FXMLLoader loader = new FXMLLoader();
-                        loader.setLocation( getClass().getResource("/views/admin/homeAdmin.fxml") ) ;
+                        loader.setLocation( getClass().getResource("/views/templates/admin.fxml") ) ;
                         Parent itemUpdateViewParent = loader.load();
                         Scene homeViewScene = new Scene( itemUpdateViewParent ) ;
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                         window.setScene( homeViewScene );
+                        window.setResizable(true);
                         window.show();
                      }
                       if("memmber".equals(su.searchUser(lbEmail.getText(), lbPassword.getText()).getType())){
@@ -86,6 +87,7 @@ public class LoginController implements Initializable {
                         Scene homeViewScene = new Scene( itemUpdateViewParent ) ;
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                         window.setScene( homeViewScene );
+                        window.setResizable(true);
                         window.show();
                      }
                        if("coach".equals(su.searchUser(lbEmail.getText(), lbPassword.getText()).getType())){
@@ -95,6 +97,7 @@ public class LoginController implements Initializable {
                         Scene homeViewScene = new Scene( itemUpdateViewParent ) ;
                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                         window.setScene( homeViewScene );
+                        window.setResizable(true);
                         window.show();
                      }
             }

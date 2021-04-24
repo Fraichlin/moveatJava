@@ -28,6 +28,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
@@ -63,7 +65,7 @@ public class MemberController implements Initializable {
     @FXML
     private Button btnImage;
     @FXML
-    private Button btnBack;
+    private ImageView btnBack;
     @FXML
     private TextField nameImage;
     
@@ -86,7 +88,6 @@ public class MemberController implements Initializable {
         sexe.getItems().addAll(sexeList);
     }   
 
-    @FXML
     private void addMember(ActionEvent event) throws IOException {
         if( !this.nameImage.getText().equals(""))
             {                    
@@ -136,15 +137,17 @@ public class MemberController implements Initializable {
         }
     }
 
-    @FXML
-    private void back(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/moveat/FXMLDocument.fxml"));
-          registerMemberPane.getChildren().setAll(pane);
-    }
-
     private String getExtension( File filepath )
     {
         return  filepath.getName().substring( filepath.getName().lastIndexOf(".") );
+    }
+
+    @FXML
+    private void addCoach(ActionEvent event) {
+    }
+
+    @FXML
+    private void back(MouseEvent event) {
     }
     
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -9,24 +8,26 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="listDemandCoachPane" prefHeight="555.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin.listDemandCoachController">
+<AnchorPane id="AnchorPane" fx:id="listDemandCoachPane" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin.listDemandCoachController">
    <children>
-      <TableView fx:id="listDemandTable" layoutX="25.0" layoutY="145.0" prefHeight="360.0" prefWidth="599.0">
+      <TableView fx:id="listDemandTable" layoutX="39.0" layoutY="142.0" prefHeight="360.0" prefWidth="725.0">
         <columns>
           <TableColumn fx:id="nameCol" prefWidth="83.0" text="Nom" />
           <TableColumn fx:id="surnameCol" prefWidth="103.0" text="Prenom" />
             <TableColumn fx:id="emailCol" prefWidth="155.0" text="Email" />
             <TableColumn fx:id="specialiteCol" minWidth="0.0" prefWidth="90.0" text="Specialite" />
-            <TableColumn fx:id="actionCol" prefWidth="166.0" text="Actions" />
+            <TableColumn fx:id="dateInsCol" prefWidth="104.0" text="Date inscription" />
+            <TableColumn fx:id="docCol" prefWidth="89.0" text="Justificatif" />
+            <TableColumn fx:id="actionsCol" prefWidth="100.0" text="Actions" />
         </columns>
       </TableView>
-      <Label layoutX="161.0" layoutY="74.0" prefHeight="34.0" prefWidth="350.0" text="Liste demande d'inscription coach" textAlignment="CENTER" textFill="#f57a07">
+      <Label layoutX="226.0" layoutY="73.0" prefHeight="34.0" prefWidth="350.0" text="Liste demande d'inscription coach" textAlignment="CENTER" textFill="#f57a07">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
       <Button fx:id="btnBackHome" layoutX="36.0" layoutY="31.0" mnemonicParsing="false" onAction="#btnBackHome" text="retour" textFill="#294aee" />
-      <Line endX="387.0" layoutX="262.0" layoutY="122.0" startX="-262.0" />
-      <FontAwesomeIcon fill="#cd641a" glyphName="REFRESH" layoutX="511.0" layoutY="101.0" onMouseClicked="#refreshTable" size="30" text="" />
+      <Line endX="538.0" layoutX="262.0" layoutY="122.0" startX="-262.0" />
+      <Button fx:id="refreshBtn" layoutX="576.0" layoutY="78.0" mnemonicParsing="false" onAction="#refreshTable" text="REFRESH" textFill="#f2660f" />
    </children>
 </AnchorPane>

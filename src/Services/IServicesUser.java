@@ -7,6 +7,7 @@ package Services;
 
 import Enitities.Coach;
 import Enitities.Member;
+import Enitities.User;
 import java.util.List;
 
 /**
@@ -15,6 +16,7 @@ import java.util.List;
  */
 public interface IServicesUser {
      public void addCoach(Coach c);
+     public Coach selectCoach(Coach c);
      public List<Coach> listCoach();
       public List<Coach> listDemandCoach();
      public void addMember(Member m);
@@ -25,5 +27,6 @@ public interface IServicesUser {
      public void blockUser(int idUser);
      public void unblockUser(int idUser);
      public void validCoach(int idCoach);
+     public User searchUser(String email, String password);
     
 }

@@ -1,47 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="registerCoachPane" prefHeight="555.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CoachController">
+<AnchorPane id="AnchorPane" fx:id="registerCoachPane" prefHeight="600.0" prefWidth="643.0" stylesheets="@../security/style01.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Coach.registerCoachController">
    <children>
-      <Label layoutX="234.0" layoutY="28.0" prefHeight="34.0" prefWidth="183.0" text="Inscription Coach" textAlignment="CENTER" textFill="#f57a07">
+      <AnchorPane layoutX="23.0" layoutY="72.0" opacity="0.93" prefHeight="508.0" prefWidth="599.0" style="-fx-background-color: #FFAF7B; -fx-background-radius: 5;">
+         <children>
+            <Label layoutX="336.0" layoutY="14.0" style="-fx-font-weight: bold;" text="Prenom" textFill="#fc7a00" />
+            <TextField fx:id="prenom" layoutX="336.0" layoutY="40.0" prefHeight="25.0" prefWidth="224.0" />
+            <Label layoutX="336.0" layoutY="83.0" style="-fx-font-weight: bold;" text="Username" textFill="#fc7a00" />
+            <TextField fx:id="username" layoutX="336.0" layoutY="107.0" prefHeight="25.0" prefWidth="224.0" />
+            <Label layoutX="336.0" layoutY="153.0" style="-fx-font-weight: bold;" text="Specialite" textFill="#fc7a00" />
+            <ChoiceBox fx:id="specialite" layoutX="336.0" layoutY="176.0" prefHeight="25.0" prefWidth="224.0" />
+            <Label layoutX="336.0" layoutY="226.0" style="-fx-font-weight: bold;" text="Adresse" textFill="#fc7a00" />
+            <TextField fx:id="adresse" layoutX="336.0" layoutY="250.0" prefHeight="25.0" prefWidth="224.0" />
+            <Label layoutX="336.0" layoutY="297.0" style="-fx-font-weight: bold;" text="Confirmer mot de passe " textFill="#fc7a00" />
+            <PasswordField fx:id="confirmPassoword" layoutX="336.0" layoutY="321.0" prefHeight="25.0" prefWidth="224.0" />
+            <Label layoutX="336.0" layoutY="365.0" style="-fx-font-weight: bold;" text="Fichier justificatif (PDF)" textFill="#fc7a00" />
+            <Button fx:id="btnPdf" layoutX="340.0" layoutY="392.0" mnemonicParsing="false" onAction="#btnPdfAction" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #159BFF;" text="Sélectionner...">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <TextField fx:id="namePdf" layoutX="436.0" layoutY="392.0" prefHeight="25.0" prefWidth="121.0" />
+            <Label layoutX="38.0" layoutY="14.0" style="-fx-font-weight: bold;" text="Nom" textFill="#fc7a00" />
+            <TextField fx:id="nom" layoutX="36.0" layoutY="32.0" prefHeight="25.0" prefWidth="224.0" />
+            <TextField fx:id="email" layoutX="38.0" layoutY="107.0" prefHeight="25.0" prefWidth="224.0" />
+            <Label layoutX="36.0" layoutY="72.0" style="-fx-font-weight: bold;" text="Email" textFill="#fc7a00" />
+            <Label layoutX="38.0" layoutY="152.0" text="Sexe" textFill="#fc7a00" />
+            <ChoiceBox fx:id="sexe" layoutX="38.0" layoutY="176.0" prefHeight="25.0" prefWidth="224.0" />
+            <Label layoutX="38.0" layoutY="225.0" style="-fx-font-weight: bold;" text="Téléphone" textFill="#fc7a00" />
+            <TextField fx:id="tel" layoutX="38.0" layoutY="250.0" prefHeight="25.0" prefWidth="224.0" />
+            <Label layoutX="38.0" layoutY="296.0" style="-fx-font-weight: bold;" text="Mot de passe" textFill="#fc7a00" />
+            <Label layoutX="38.0" layoutY="364.0" style="-fx-font-weight: bold;" text="Photo de profil (JPG ou PNG)" textFill="#fc7a00" />
+            <PasswordField fx:id="password" layoutX="36.0" layoutY="321.0" prefHeight="25.0" prefWidth="224.0" />
+            <Button fx:id="btnImage" layoutX="38.0" layoutY="391.0" mnemonicParsing="false" onAction="#btnImageAction" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: #159BFF;" text="Sélectionner...">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <TextField fx:id="nameImage" layoutX="134.0" layoutY="391.0" prefHeight="25.0" prefWidth="121.0" />
+            <Button fx:id="btnInscription" layoutX="177.0" layoutY="449.0" mnemonicParsing="false" onAction="#addCoach" prefHeight="31.0" prefWidth="252.0" style="-fx-background-color: #159BFF;" text="INSCRIPTION" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label layoutX="234.0" layoutY="28.0" prefHeight="34.0" prefWidth="197.0" style="-fx-font-weight: bold;" text="Inscription Coach" textAlignment="CENTER" textFill="#f57a07">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="52.0" layoutY="76.0" text="Nom" textFill="#fc7a00" />
-      <TextField fx:id="nom" layoutX="52.0" layoutY="102.0" prefHeight="25.0" prefWidth="224.0" />
-      <Label layoutX="336.0" layoutY="78.0" text="Prenom" textFill="#fc7a00" />
-      <TextField fx:id="prenom" layoutX="336.0" layoutY="101.0" prefHeight="25.0" prefWidth="224.0" />
-      <TextField fx:id="email" layoutX="52.0" layoutY="169.0" prefHeight="25.0" prefWidth="224.0" />
-      <Label layoutX="52.0" layoutY="142.0" text="Email" textFill="#fc7a00" />
-      <Label layoutX="336.0" layoutY="144.0" text="Username" textFill="#fc7a00" />
-      <TextField fx:id="username" layoutX="336.0" layoutY="169.0" prefHeight="25.0" prefWidth="224.0" />
-      <Label layoutX="52.0" layoutY="214.0" text="Sexe" textFill="#fc7a00" />
-      <ChoiceBox fx:id="sexe" layoutX="52.0" layoutY="238.0" prefHeight="25.0" prefWidth="224.0" />
-      <Label layoutX="336.0" layoutY="214.0" text="Specialite" textFill="#fc7a00" />
-      <ChoiceBox fx:id="specialite" layoutX="336.0" layoutY="238.0" prefHeight="25.0" prefWidth="224.0" />
-      <Label layoutX="52.0" layoutY="287.0" text="Téléphone" textFill="#fc7a00" />
-      <TextField fx:id="tel" layoutX="52.0" layoutY="312.0" prefHeight="25.0" prefWidth="224.0" />
-      <Label layoutX="336.0" layoutY="287.0" text="Adresse" textFill="#fc7a00" />
-      <TextField fx:id="adresse" layoutX="336.0" layoutY="312.0" prefHeight="25.0" prefWidth="224.0" />
-      <Label layoutX="52.0" layoutY="358.0" text="Mot de passe" textFill="#fc7a00" />
-      <Label layoutX="336.0" layoutY="358.0" text="Confirmer mot de passe " textFill="#fc7a00" />
-      <Label layoutX="52.0" layoutY="426.0" text="Photo de profil (JPG ou PNG)" textFill="#fc7a00" />
-      <PasswordField fx:id="password" layoutX="50.0" layoutY="383.0" prefHeight="25.0" prefWidth="224.0" />
-      <PasswordField fx:id="confirmPassoword" layoutX="336.0" layoutY="383.0" prefHeight="25.0" prefWidth="224.0" />
-      <Label layoutX="336.0" layoutY="426.0" text="Fichier justificatif (PDF)" textFill="#fc7a00" />
-      <Button fx:id="btnInscription" layoutX="250.0" layoutY="502.0" mnemonicParsing="false" onAction="#addCoach" prefHeight="25.0" prefWidth="121.0" text="INSCRIPTION" textFill="#294aee" />
-      <Button fx:id="btnImage" layoutX="52.0" layoutY="453.0" mnemonicParsing="false" onAction="#btnImageAction" prefHeight="25.0" prefWidth="96.0" text="Sélectionner..." />
-      <Button fx:id="btnPdf" layoutX="336.0" layoutY="453.0" mnemonicParsing="false" onAction="#btnPdfAction" prefHeight="25.0" prefWidth="96.0" text="Sélectionner..." />
-      <Button fx:id="btnBack" layoutX="41.0" layoutY="33.0" mnemonicParsing="false" onAction="#back" text="retour" textFill="#294aee" />
-      <TextField fx:id="nameImage" layoutX="148.0" layoutY="453.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField fx:id="namePdf" layoutX="432.0" layoutY="453.0" prefHeight="25.0" prefWidth="121.0" />
+      <ImageView fx:id="btnBack" fitHeight="46.0" fitWidth="57.0" layoutX="23.0" layoutY="22.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../ressources/images/return.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <!--<FontAwesomeIconView fx:id="btnBack" fill="#159bff" glyphName="ARROW_LEFT" layoutX="23.0" layoutY="57.0" onMouseClicked="#back" size="3em" />-->
    </children>
 </AnchorPane>

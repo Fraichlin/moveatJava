@@ -3,42 +3,38 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TableViewController">
+<AnchorPane id="AnchorPane" prefHeight="713.0" prefWidth="1219.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TableViewController">
     <stylesheets>
         <URL value="@tableview.css" />
     </stylesheets>
    <children>
-      <TableView fx:id="tvappointments" layoutX="14.0" layoutY="184.0" prefHeight="305.0" prefWidth="765.0" style="-fx-background-color: white;">
+      <Label layoutX="29.0" layoutY="27.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Liste RDV" />
+      <Separator layoutX="13.0" layoutY="65.0" prefHeight="4.0" prefWidth="1226.0" />
+      <TableView fx:id="tvappointments" layoutX="14.0" layoutY="184.0" prefHeight="519.0" prefWidth="1217.0" style="-fx-background-color: white;">
          <columns>
-            <TableColumn fx:id="colnom" prefWidth="89.0" text="nom" />
-            <TableColumn fx:id="colprenom" prefWidth="89.0" text="prenom" />
-            <TableColumn fx:id="colemail" prefWidth="162.0" text="email" />
-            <TableColumn fx:id="coltel" prefWidth="111.0" text="tel" />
-            <TableColumn fx:id="coldate" prefWidth="86.0" text="date" />
-            <TableColumn fx:id="coltime" prefWidth="67.0" text="time" />
-            <TableColumn fx:id="colmessage" prefWidth="117.0" text="message" />
+            <TableColumn fx:id="colnom" prefWidth="149.0" text="nom" />
+            <TableColumn fx:id="colprenom" prefWidth="141.0" text="prenom" />
+            <TableColumn fx:id="colemail" prefWidth="170.0" text="email" />
+            <TableColumn fx:id="coltel" minWidth="0.0" prefWidth="148.0" text="tel" />
+            <TableColumn fx:id="coldate" prefWidth="117.0" text="date" />
+            <TableColumn fx:id="coltime" prefWidth="108.0" text="time" />
+            <TableColumn fx:id="colmessage" prefWidth="284.0" text="message" />
+            <TableColumn fx:id="editcol" prefWidth="89.0" text="edit" />
          </columns>
       </TableView>
-      <Pane layoutY="59.0" prefHeight="3.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Text layoutX="26.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment List" wrappingWidth="245.13671875">
-         <font>
-            <Font name="Arial" size="32.0" />
-         </font>
-      </Text>
       <HBox alignment="CENTER" layoutX="602.0" layoutY="-1.0" prefHeight="36.0" prefWidth="37.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <FontAwesomeIconView glyphName="CLOSE" onMouseClicked="#close" size="20" styleClass="btn" />
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="34.0" layoutY="73.0" prefHeight="76.0" prefWidth="200.0">
+      <HBox alignment="CENTER_LEFT" layoutX="33.0" layoutY="96.0" prefHeight="76.0" prefWidth="200.0">
          <children>
             <FontAwesomeIconView fill="#2196f3" glyphName="USER_PLUS" onMouseClicked="#getAddView" size="45" styleClass="btn">
                <HBox.margin>

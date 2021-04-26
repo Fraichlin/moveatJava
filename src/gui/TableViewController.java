@@ -6,6 +6,8 @@
 package gui;
 
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entities.Appointment;
 import java.io.IOException;
 import java.net.URL;
@@ -21,18 +23,22 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableCell;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Callback;
 
 import tools.MaConnexion;
 
@@ -59,18 +65,17 @@ public class TableViewController implements Initializable {
     private TableColumn<Appointment, String> coltime;
     @FXML
     private TableColumn<Appointment, String> colmessage;
-    
-    String query = null;
-    Connection connection = null ;
-    PreparedStatement preparedStatement = null ;
-    ResultSet resultSet = null ;
-    Appointment appointment = null ;
+    @FXML
+    private TableColumn <Appointment, String> editcol;
+   
     
     Connection cnx;
     PreparedStatement ste;
+    
+   Appointment appointment=null;
 
     public TableViewController() {
-    cnx = MaConnexion.getinstance().getCnx();
+   cnx = MaConnexion.getinstance().getCnx();
     
     }
     
@@ -83,13 +88,10 @@ public class TableViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        loadDate();
     }    
     
     
-    
-    
-    
-
     @FXML
     private void close(MouseEvent event) {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -115,20 +117,21 @@ public class TableViewController implements Initializable {
          try {
             AppointmentList.clear();
             
-            query = "SELECT * FROM `appointment`";
-            preparedStatement = connection.prepareStatement(query);
-            resultSet = preparedStatement.executeQuery();
+            String sql  = "SELECT * FROM `appointment`";
             
-            while (resultSet.next()){
+            ste = cnx.prepareStatement(sql);
+            ResultSet rs = ste.executeQuery();
+            
+            while (rs.next()) {   
                 AppointmentList.add(new  Appointment(
                         
-                        resultSet.getString("nom"),
-                        resultSet.getString("prenom"),
-                        resultSet.getString("email"),
-                        resultSet.getInt("tel"),
-                        resultSet.getString("date"),
-                        resultSet.getString("time"),
-                        resultSet.getString("message")));
+                        rs.getString("nom"),
+                        rs.getString("prenom"),
+                        rs.getString("email"),
+                        rs.getInt("tel"),
+                        rs.getString("date"),
+                        rs.getString("time"),
+                        rs.getString("message")));
                tvappointments.setItems(AppointmentList);
                 
             }
@@ -157,7 +160,106 @@ public class TableViewController implements Initializable {
         coltel.setCellValueFactory(new PropertyValueFactory<>("tel"));
         coldate.setCellValueFactory(new PropertyValueFactory<>("date"));
         coltime.setCellValueFactory(new PropertyValueFactory<>("time"));
-        colmessage.setCellValueFactory(new PropertyValueFactory<>("message"));    
+        colmessage.setCellValueFactory(new PropertyValueFactory<>("message"));
+        
+        //add cell of button edit 
+         Callback<TableColumn<Appointment, String>, TableCell<Appointment, String>> cellFoctory = (TableColumn<Appointment, String> param) -> {
+            // make cell containing buttons
+            final TableCell<Appointment, String> cell = new TableCell<Appointment, String>() {
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    //that cell created only on non-empty rows
+                    if (empty) {
+                        setGraphic(null);
+                        setText(null);
+
+                    } else {
+
+                        FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
+                        FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
+
+                        deleteIcon.setStyle(
+                                " -fx-cursor: hand ;"
+                                + "-glyph-size:28px;"
+                                + "-fx-fill:#ff1744;"
+                        );
+                        editIcon.setStyle(
+                                " -fx-cursor: hand ;"
+                                + "-glyph-size:28px;"
+                                + "-fx-fill:#00E676;"
+                        );
+                        deleteIcon.setOnMouseClicked((MouseEvent event) -> {
+                            
+                            try {
+                                appointment = tvappointments.getSelectionModel().getSelectedItem();
+                                String sql = "DELETE FROM `appointment` WHERE id  ="+appointment.getId();
+                                
+
+                                  ste = cnx.prepareStatement(sql);
+                                  ste.execute();
+                                
+                                refreshTable();
+                                
+                            } catch (SQLException ex) {
+                                Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            
+                           
+
+                          
+
+                        });
+                        editIcon.setOnMouseClicked((MouseEvent event) -> {
+                            
+                            appointment = tvappointments.getSelectionModel().getSelectedItem();
+                            FXMLLoader loader = new FXMLLoader ();
+                            loader.setLocation(getClass().getResource("MakeAppointment.fxml"));
+                            try {
+                                loader.load();
+                            } catch (IOException ex) {
+                                Logger.getLogger(TableViewController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            
+                            MakeAppointmentController makeAppointmentController = loader.getController();
+                            
+                            makeAppointmentController.setUpdate(true);
+                            
+                            makeAppointmentController.setTextField(appointment.getId(), appointment.getNom() , appointment.getPrenom(),
+                                    appointment.getEmail(),appointment.getTel(),appointment.getDate(),appointment.getTime(),appointment.getMessage()
+                                    
+                            );
+                                    
+                            Parent parent = loader.getRoot();
+                            Stage stage = new Stage();
+                            stage.setScene(new Scene(parent));
+                            stage.initStyle(StageStyle.UTILITY);
+                            stage.show();
+                            
+
+                           
+
+                        });
+
+                        HBox managebtn = new HBox(editIcon, deleteIcon);
+                        managebtn.setStyle("-fx-alignment:center");
+                        HBox.setMargin(deleteIcon, new Insets(2, 2, 0, 3));
+                        HBox.setMargin(editIcon, new Insets(2, 3, 0, 2));
+
+                        setGraphic(managebtn);
+
+                        setText(null);
+
+                    }
+                }
+
+            };
+
+            return cell;
+        };
+         editcol.setCellFactory(cellFoctory);
+         tvappointments.setItems(AppointmentList);
+         
         
       
     

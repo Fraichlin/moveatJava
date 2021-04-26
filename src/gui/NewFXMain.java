@@ -5,6 +5,7 @@
  */
 package gui;
 
+import java.awt.Desktop;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,10 +27,10 @@ public class NewFXMain extends Application {
     public void start(Stage primaryStage) {
         
        try {
-            Parent root =FXMLLoader.load(getClass().getResource("Payment.fxml"));
+            Parent root =FXMLLoader.load(getClass().getResource("Design.fxml"));
             Scene scene = new Scene(root);
             
-            primaryStage.setTitle("Make Appointment");
+            primaryStage.setTitle("Home");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1360.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aymen.gui.DesignController">
+   <children>
+      <JFXToolbar layoutX="184.0" layoutY="14.0" prefHeight="61.0" prefWidth="1360.0" style="-fx-min-height: 42; -fx-background-color: #222D32;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <ImageView fitHeight="52.0" fitWidth="200.0" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../ressources/images/logo.jpg" />
+               </image>
+            </ImageView>
+         </left>
+         <right>
+            <ImageView fx:id="btnLogout" fitHeight="33.0" fitWidth="39.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -10;" styleClass="nav-button" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../ressources/images/off.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </right>
+      </JFXToolbar>
+      <VBox layoutY="61.0" prefHeight="699.0" prefWidth="165.0" style="-fx-background-color: #2A3F54;">
+         <children>
+            <Label prefHeight="50.0" prefWidth="166.0" style="-fx-alignment: center; -fx-font-size: 16; -fx-text-fill: #7387A8; -fx-border-color: #7387A8; -fx-border-width: 0 0 2 0;" text="NAVIGATION" />
+            <AnchorPane maxWidth="195.0" prefHeight="149.0" prefWidth="195.0" style="-fx-background-color: #2A3F54; -fx-translate-x: 10; -fx-max-width: 5; -fx-background-radius: 20; -fx-border-radius: 20;">
+               <children>
+                  <ImageView fx:id="imgProfil" fitHeight="82.0" fitWidth="107.0" layoutX="25.0" layoutY="7.0" onMouseClicked="#profilMember" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../ressources/images/20210413071645.jpg" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Label fx:id="lbName" contentDisplay="CENTER" layoutX="3.0" layoutY="118.0" prefHeight="17.0" prefWidth="131.0" style="-fx-font-weight: bold; -fx-alignment: center;" text="NOM ET PRENOM" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+            <JFXButton fx:id="btnHome" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: center-left;" styleClass="nav-button" text="Home" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="DASHBOARD" size="17.0" wrappingWidth="43.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnPsy" onAction="#switchPsy" prefHeight="42.0" prefWidth="164.0" style="-fx-alignment: center-left;" styleClass="nav-button" text="Psychothérapie" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="HEART" size="17.0" wrappingWidth="43.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnNutrition" onAction="#switchNutrition" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: center-left;" styleClass="nav-button" text="Nutrition" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="APPLE" size="17.0" wrappingWidth="43.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnSport" onAction="#switchSport" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: center-left;" styleClass="nav-button" text="Sport" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" size="17.0" wrappingWidth="43.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnRdv" onAction="#switchRdv" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: center-left;" styleClass="nav-button" text="RDV" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="CALENDAR" size="17.0" wrappingWidth="43.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnContacts" layoutX="10.0" layoutY="109.0" onAction="#switchContacts" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: center-left;" styleClass="nav-button" text="Contact" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="GROUP" size="17.0" wrappingWidth="43.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnContacts1" onAction="#switchMail" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: center-left;" styleClass="nav-button" text="Mail" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="GROUP" size="17.0" wrappingWidth="43.0" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="holderPane" layoutX="165.0" layoutY="61.0" prefHeight="699.0" prefWidth="1192.0" />
+   </children>
+</AnchorPane>

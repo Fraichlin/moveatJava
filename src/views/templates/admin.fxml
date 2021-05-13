@@ -10,18 +10,21 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin.templateController">
+<AnchorPane id="AnchorPane" fx:id="generalPane" prefHeight="768.0" prefWidth="1366.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin.templateController">
    <children>
       <BorderPane fx:id="borderPane" layoutY="54.0" prefHeight="714.0" prefWidth="212.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css">
          <top>
             <AnchorPane maxWidth="195.0" prefHeight="149.0" prefWidth="195.0" style="-fx-background-color: #2F323A; -fx-translate-x: 1; -fx-max-width: 5; -fx-background-radius: 20; -fx-border-radius: 20;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="82.0" fitWidth="107.0" layoutX="29.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgProfil" fitHeight="82.0" fitWidth="107.0" layoutX="13.0" layoutY="7.0" onMouseClicked="#profilAdmin" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../ressources/images/20210413071645.jpg" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
-                  <Label contentDisplay="CENTER" layoutX="3.0" layoutY="118.0" prefHeight="17.0" prefWidth="131.0" style="-fx-font-weight: bold; -fx-alignment: center;" text="NOM ET PRENOM" textFill="WHITE" />
+                  <Label fx:id="lbName" contentDisplay="CENTER" layoutX="3.0" layoutY="118.0" prefHeight="17.0" prefWidth="131.0" style="-fx-font-weight: bold; -fx-alignment: center;" text="NOM ET PRENOM" textFill="WHITE" />
                </children>
             </AnchorPane>
          </top>
@@ -35,7 +38,7 @@
                               <Image url="@../../ressources/images/dashboard.png" />
                            </image>
                         </ImageView>
-                      <Button mnemonicParsing="false" onAction="#dashboard" prefHeight="31.0" prefWidth="144.0" style="-fx-alignment: left;" text="Tableau de bord" textFill="WHITE">
+                      <Button mnemonicParsing="false" onAction="#dashboard" prefHeight="31.0" prefWidth="144.0" style="-fx-alignment: left;" styleClass="btnSideMenu" text="Tableau de bord" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -55,7 +58,7 @@
                               <Image url="@../../ressources/images/coach.png" />
                            </image>
                         </ImageView>
-                        <Button mnemonicParsing="false" onAction="#coach" prefHeight="31.0" prefWidth="141.0" style="-fx-alignment: left;" text="Coachs" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#coach" prefHeight="31.0" prefWidth="141.0" style="-fx-alignment: left;" styleClass="btnSideMenu" text="Coachs" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -75,7 +78,7 @@
                               <Image url="@../../ressources/images/member.png" />
                            </image>
                         </ImageView>
-                        <Button mnemonicParsing="false" onAction="#member" prefHeight="31.0" prefWidth="139.0" style="-fx-alignment: left;" text="Membres" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#member" prefHeight="31.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="btnSideMenu" text="Membres" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -95,7 +98,7 @@
                               <Image url="@../../ressources/images/appointment.png" />
                            </image>
                         </ImageView>
-                        <Button mnemonicParsing="false" onAction="#appointement" prefHeight="31.0" prefWidth="143.0" style="-fx-alignment: left;" text="Rendez-vous" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#appointement" prefHeight="31.0" prefWidth="143.0" style="-fx-alignment: left;" styleClass="btnSideMenu" text="Rendez-vous" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -112,7 +115,7 @@
                               <Image url="@../../ressources/images/program.png" />
                            </image>
                         </ImageView>
-                        <Button mnemonicParsing="false" onAction="#program" prefHeight="31.0" prefWidth="144.0" style="-fx-alignment: left;" text="Programmes" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#program" prefHeight="31.0" prefWidth="144.0" style="-fx-alignment: left;" styleClass="btnSideMenu" text="Programmes" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -129,7 +132,7 @@
                               <Image url="@../../ressources/images/demandCoach.png" />
                            </image>
                         </ImageView>
-                        <Button mnemonicParsing="false" onAction="#demandCoach" prefHeight="31.0" prefWidth="170.0" style="-fx-alignment: left;" text="Demandes coachs" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#demandCoach" prefHeight="31.0" prefWidth="170.0" style="-fx-alignment: left;" styleClass="btnSideMenu" text="Demandes coachs" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -155,20 +158,32 @@
                </image>
             </ImageView>
          </left>
-         <center>
-            <ImageView fitHeight="41.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -550;" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../../ressources/images/MovEat.jpg" />
-               </image>
-            </ImageView>
-         </center>
          <right>
             <ImageView fx:id="btnLogout" fitHeight="33.0" fitWidth="39.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -10;" styleClass="nav-button" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../ressources/images/off.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </right>
+         <center>
+            <AnchorPane prefHeight="54.0" prefWidth="212.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="63.0" layoutX="153.0" layoutY="7.0" onMouseClicked="#refresh" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../ressources/images/refresh.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="41.0" fitWidth="133.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../ressources/images/MovEat.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

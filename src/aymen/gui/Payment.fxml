@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="244.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aymen.gui.PaymentController">
+   <children>
+      <TextField fx:id="TXCARDINFO" layoutX="204.0" layoutY="97.0" prefHeight="25.0" prefWidth="245.0" />
+      <TextField fx:id="exp_month" layoutX="124.0" layoutY="150.0" prefHeight="25.0" prefWidth="48.0" />
+      <TextField fx:id="cvv" layoutX="381.0" layoutY="150.0" prefHeight="25.0" prefWidth="68.0" />
+      <Text layoutX="89.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number" />
+      <Text layoutX="27.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expire Month" />
+      <Text layoutX="339.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVV" />
+      <Text layoutX="273.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CARD INFO" />
+      <Button fx:id="BUY" layoutX="496.0" layoutY="205.0" mnemonicParsing="false" text="PAY" />
+      <TextField fx:id="exp_year" layoutX="266.0" layoutY="150.0" prefHeight="25.0" prefWidth="61.0" />
+      <Text layoutX="179.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expire Year" />
+      <ImageView fitHeight="43.0" fitWidth="200.0" layoutX="190.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../ressources/images/credit-card-pay-pal-icons.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

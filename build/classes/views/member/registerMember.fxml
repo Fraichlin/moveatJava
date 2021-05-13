@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="registerMemberPane" prefHeight="600.0" prefWidth="643.0" stylesheets="@../security/style01.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Member.registerMemberController">
+<AnchorPane id="AnchorPane" fx:id="registerMemberPane" prefHeight="600.0" prefWidth="643.0" stylesheets="@../security/style01.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Member.registerMemberController">
    <children>
       <AnchorPane layoutX="22.0" layoutY="74.0" opacity="0.93" prefHeight="508.0" prefWidth="599.0" style="-fx-background-color: #FFAF7B; -fx-background-radius: 5;">
          <children>
@@ -34,9 +34,9 @@
             <Label layoutX="45.0" layoutY="179.0" style="-fx-font-weight: bold;" text="Sexe" textFill="#fc7a00" />
             <ChoiceBox fx:id="sexe" layoutX="45.0" layoutY="203.0" prefHeight="25.0" prefWidth="224.0" />
             <Label layoutX="327.0" layoutY="179.0" style="-fx-font-weight: bold;" text="Taille (mètres)" textFill="#fc7a00" />
-            <TextField fx:id="taille" layoutX="43.0" layoutY="280.0" prefHeight="25.0" prefWidth="224.0" />
+            <TextField fx:id="poids" layoutX="43.0" layoutY="280.0" prefHeight="25.0" prefWidth="224.0" />
             <Label layoutX="45.0" layoutY="257.0" style="-fx-font-weight: bold;" text="Poids (kilogrammes)" textFill="#fc7a00" />
-            <TextField fx:id="poids" layoutX="329.0" layoutY="203.0" prefHeight="25.0" prefWidth="224.0" />
+            <TextField fx:id="taille" layoutX="329.0" layoutY="203.0" prefHeight="25.0" prefWidth="224.0" />
             <Label layoutX="328.0" layoutY="257.0" style="-fx-font-weight: bold;" text="Mot de passe" textFill="#fc7a00" />
             <Label layoutX="45.0" layoutY="324.0" style="-fx-font-weight: bold;" text="Confirmer mot de passe " textFill="#fc7a00" />
             <Label layoutX="325.0" layoutY="321.0" style="-fx-font-weight: bold;" text="Photo de profil (JPG ou PNG)" textFill="#fc7a00" />

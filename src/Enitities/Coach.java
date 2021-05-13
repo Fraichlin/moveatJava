@@ -5,7 +5,8 @@
  */
 package Enitities;
 
-import java.util.Date;
+import java.sql.Date;
+
 
 /**
  *
@@ -20,12 +21,17 @@ public class Coach extends User{
     public Coach(){
         
     }
-    public Coach(String specialite, String adresse, String justificatif, String email, String username, String password, String nom, String prenom, String sexe, String tel, String statut, String photo,String type, Date dateInscription) {
-        super(email, username, password, nom, prenom, sexe, tel, statut, photo,type, dateInscription);
+
+    public Coach(String specialite, String adresse, String justificatif, Date dateValidation, int idUser, String email, String username, String password, String nom, String prenom, String sexe, String tel, String statut, String photo, String[] type, Date dateInscription, Date dateBlocage, Date dateDeblocage, Date dateModification, int isVerified) {
+        super(idUser, email, username, password, nom, prenom, sexe, tel, statut, photo, type, dateInscription, dateBlocage, dateDeblocage, dateModification, isVerified);
         this.specialite = specialite;
         this.adresse = adresse;
         this.justificatif = justificatif;
+        this.dateValidation = dateValidation;
     }
+
+    
+    
 
     public String getSpecialite() {
         return specialite;

@@ -1,0 +1,53 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 25, 2021, 9:02:19 PM
+    Author     : NGONGANG Loic F
+*/
+
+.table-view {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(to bottom, #CBE8FF, #F3F9FF);
+    -fx-background-radius: 7px 7px 0px 0px;
+    
+    -fx-padding: 0 0 5px 0;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+    -fx-border-style:solid;
+    -fx-alignment: center;
+}
+.table-row-cell:hover {
+    -fx-background-color: #F3F9FF;
+    -fx-text-background-color: #ff5619;
+}
+.table-row-cell:odd{
+    -fx-background-color: #F3F9FF;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color: #CBE8FF;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+.table-row-cell:highlighted {
+    -fx-background-color: #63BCFF;
+    -fx-background-radius: 15px;
+}
+.table-row-cell:selected .text {
+       -fx-fill: #ff5619 ;
+}

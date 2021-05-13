@@ -9,12 +9,15 @@
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
     <jar href="lib\controlsfx-8.40.12.jar" size="996389" download="eager" />
-    <jar href="lib\fontawesomefx-8.2.jar" size="180341" download="eager" />
-    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
-    <jar href="lib\fontawesomefx-commons-9.1.2.jar" size="24064" download="eager" />
-    <jar href="lib\jfoenix.jar" size="2206526" download="eager" />
+    <jar href="lib\fontawesomefx-glyphsbrowser-all-1.0.jar" size="1662483" download="eager" />
+    <jar href="lib\gson-2.8.5.jar" size="241622" download="eager" />
+    <jar href="lib\jBCrypt-0.4.1.jar" size="17570" download="eager" />
+    <jar href="lib\java-json.jar" size="84697" download="eager" />
+    <jar href="lib\java-mail-1.4.4.jar" size="494975" download="eager" />
+    <jar href="lib\jfoenix-8.0.10.jar" size="2710207" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.15-bin.jar" size="785998" download="eager" />
-    <jar href="moveat.jar" size="7792985" download="eager" />
+    <jar href="lib\stripe-java-20.47.0.jar" size="3983946" download="eager" />
+    <jar href="moveat.jar" size="22444255" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="moveat.Moveat"  name="moveat" />
   <update check="always"/>

@@ -5,6 +5,7 @@
  */
 package Utils;
 
+import Enitities.User;
 import java.io.IOException;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,16 @@ import javafx.stage.Stage;
  */
 public class globalMethods {
      
+    public void goTo(String path,User userConnected, Event event) throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation( getClass().getResource(path) ) ;
+        Parent itemUpdateViewParent = loader.load();
+        Scene homeViewScene = new Scene( itemUpdateViewParent ) ;
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setResizable(false);
+        window.setScene( homeViewScene );
+        window.show();
+    }
     public void goTo(String path, Event event) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation( getClass().getResource(path) ) ;

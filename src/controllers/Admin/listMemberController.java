@@ -8,6 +8,7 @@ package controllers.Admin;
 import Enitities.Coach;
 import Enitities.Member;
 import Service.serviceUser;
+import aymen.gui.Mail;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -29,6 +31,8 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -53,14 +57,13 @@ public class listMemberController implements Initializable {
     @FXML
     private TableColumn<Member, String> sexeCol;
     @FXML
+    private TableColumn<Member, String> statutCol;
+    @FXML
     private TableColumn<Member, String> dateInsCol;
     @FXML
     private TableColumn<Member, Void> actionsCol;
-    @FXML
-    private Button btnBackHome;
-    @FXML
-    private Button refreshBtn;
     ObservableList<Member> listMember = FXCollections.observableArrayList();
+    
 
     /**
      * Initializes the controller class.
@@ -76,53 +79,81 @@ public class listMemberController implements Initializable {
         surnameCol.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
         sexeCol.setCellValueFactory(new PropertyValueFactory<>("sexe"));
+        statutCol.setCellValueFactory(new PropertyValueFactory<>("statut"));
         dateInsCol.setCellValueFactory(new PropertyValueFactory<>("dateInscription"));
         
         actionsCol.setCellFactory(param -> new TableCell<Member, Void>() {
        
-        private final Button viewButton = new Button("Visualiser");
-        private final Button blockButton = new Button("Bloquer");
-        private final Button deleteButton = new Button("Supprimer");
-        private final HBox pane = new HBox(viewButton,blockButton,deleteButton);
+        private final ImageView viewImg = new ImageView("/ressources/images/view.png");
+        private final ImageView deleteImg = new ImageView("/ressources/images/delete.png");
+        private final ImageView blockImg = new ImageView("/ressources/images/block.png");
+        private final ImageView unblockImg = new ImageView("/ressources/images/unblock.png");
+        private final HBox pane = new HBox(viewImg,blockImg,unblockImg,deleteImg);
 
         {
-           
-            deleteButton.setOnAction(event -> {
-                Member m = getTableView().getItems().get(getIndex());
-                if("blocked".equals(m.getStatut()))blockButton.setText("Débloquer");
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Supprimer le membre" + m.getNom()+" "+m.getPrenom()+ " ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+            viewImg.setFitHeight(30);
+            viewImg.setFitWidth(30);
+            viewImg.setPreserveRatio(true);
+            deleteImg.setFitHeight(30);
+            deleteImg.setFitWidth(30);
+            deleteImg.setPreserveRatio(true);
+            blockImg.setFitHeight(30);
+            blockImg.setFitWidth(30);
+            blockImg.setPreserveRatio(true);
+            unblockImg.setFitHeight(30);
+            unblockImg.setFitWidth(30);
+            unblockImg.setPreserveRatio(true);
+            pane.setAlignment(Pos.CENTER);
+            deleteImg.setOnMouseClicked(event->{
+               Member m = getTableView().getItems().get(getIndex());
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Supprimer le membre " + m.getNom()+" "+m.getPrenom()+ " ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
                 alert.showAndWait();
                 if (alert.getResult() == ButtonType.YES) {
                      su.deleteUser(m.getIdUser());
                      loadData();
+                     Mail mail = new Mail();
+                      mail.sendMail(m.getEmail(), "Suppression de votre compte", ""
+                              + "Votre compte a été supprimé. Vous ne pouvez plus vous connecter.", "ngongangloic151@gmail.com", "lenovoa5600");
                 }
             });
-
-            blockButton.setOnAction(event -> {
-                  Member m = getTableView().getItems().get(getIndex());
-                 if("blocked".equals(m.getStatut()))blockButton.setText("Débloquer");
-                 if("blocked".equals(m.getStatut())){
+            
+            blockImg.setOnMouseClicked(event->{
+                Member m = getTableView().getItems().get(getIndex());
+                      Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bloquer le membre " + m.getNom()+" "+m.getPrenom()+ " ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+                      alert.showAndWait();
+                 if (alert.getResult() == ButtonType.YES) {
+                   su.blockUser(m.getIdUser());
+                  
+                   loadData();
+                   Mail mail = new Mail();
+                      mail.sendMail(m.getEmail(), "Blocage de votre compte", ""
+                              + "Votre compte a été bloqué. Vous ne pouvez plus vous connecter. Vous recevrez un mail en cas de déblocage.", "ngongangloic151@gmail.com", "lenovoa5600");
+                }
+                if("blocked".equals(m.getStatut())){
+                    pane.getChildren().remove(blockImg);
+                if(!pane.getChildren().contains(unblockImg))pane.getChildren().add(unblockImg);
+                }    
+            });
+            
+            unblockImg.setOnMouseClicked(event->{
+                Member m = getTableView().getItems().get(getIndex());
                      Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Débloquer le membre " + m.getNom()+" "+m.getPrenom()+ " ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
                      alert.showAndWait();
                   if (alert.getResult() == ButtonType.YES) {
                      su.unblockUser(m.getIdUser());
-                     loadData();
-                }
-                 }
-                    else{
-                      Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bloquer le membre " + m.getNom()+" "+m.getPrenom()+ " ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
-                      alert.showAndWait();
-                  if (alert.getResult() == ButtonType.YES) {
-                     su.blockUser(m.getIdUser());
-                     loadData();
-                }
-                 }              
-                 
+                     loadData();      
+                     Mail mail = new Mail();
+                      mail.sendMail(m.getEmail(), "Déblocage de votre compte", ""
+                               + "Votre compte a été débloqué. Vous pouvez vous connecter maintenant.", "ngongangloic151@gmail.com", "lenovoa5600");
+                    }
+                  if("unblocked".equals(m.getStatut())){
+                     pane.getChildren().remove(unblockImg);
+                     if(!pane.getChildren().contains(blockImg))pane.getChildren().add(blockImg);
+                  }
             });
             
-             viewButton.setOnAction(event -> {
-                 Member m = getTableView().getItems().get(getIndex());
-                 if("blocked".equals(m.getStatut()))blockButton.setText("Débloquer");
+            viewImg.setOnMouseClicked(event->{
+                Member m = getTableView().getItems().get(getIndex());
                 try {
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation( getClass().getResource("/views/admin/viewProfileMember.fxml") ) ;
@@ -131,7 +162,8 @@ public class listMemberController implements Initializable {
                     viewProfileMemberController controller = (viewProfileMemberController)loader.getController();
                      try {
                          controller.initializeData( m );                 
-                         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                         Stage window = new Stage();
+                         window.setTitle("Profile Membre");
                         window.setScene( homeViewScene );
                         window.show();
                      } catch (Exception ex) {
@@ -143,6 +175,7 @@ public class listMemberController implements Initializable {
                     Logger.getLogger(listMemberController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
+            
         }
 
             @Override
@@ -155,7 +188,6 @@ public class listMemberController implements Initializable {
         listMember = FXCollections.observableArrayList(su.listMember());
         listTableMember.setItems(listMember);
     }
-    @FXML
     private void btnBackHome(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation( getClass().getResource("/views/admin/homeAdmin.fxml") ) ;
@@ -167,7 +199,9 @@ public class listMemberController implements Initializable {
     }
 
     @FXML
-    private void refreshTable(ActionEvent event) {
+    private void refresh(MouseEvent event) {
+         loadData();
     }
+
     
 }

@@ -34,8 +34,6 @@ import javafx.stage.Stage;
 public class viewProfileMemberController implements Initializable {
 
     @FXML
-    private Button btnBackHome;
-    @FXML
     private ImageView imageView;
     @FXML
     private Label lbName;
@@ -100,26 +98,17 @@ public class viewProfileMemberController implements Initializable {
         if(m.getDateDeblocage()==null){
             lbDateunblock.setText("/");
         }else lbDateunblock.setText(m.getDateDeblocage().toString());
-        imageView.setImage(new Image("/ressources/images/"+m.getPhoto()));
+        imageView.setImage(new Image("file:C:\\xampp\\htdocs\\moveat2\\public\\upload\\images\\"+m.getPhoto()));
         
-    }
-    @FXML
-    private void btnBackHome(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation( getClass().getResource("/views/admin/listMember.fxml") ) ;
-        Parent itemUpdateViewParent = loader.load();
-        Scene homeViewScene = new Scene( itemUpdateViewParent ) ;
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene( homeViewScene );
-        window.show();
     }
 
     @FXML
-    private void blockMember(ActionEvent event) {
+    private void blockMember(ActionEvent event) throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bloquer le membre ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
                 alert.showAndWait();
                 if (alert.getResult() == ButtonType.YES) {
                      su.blockUser(id);
+                     initializeData(member);
                 }
     }
 
@@ -133,11 +122,12 @@ public class viewProfileMemberController implements Initializable {
     }
 
     @FXML
-    private void unblockMember(ActionEvent event) {
+    private void unblockMember(ActionEvent event) throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Débloquer le membre ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
                 alert.showAndWait();
                 if (alert.getResult() == ButtonType.YES) {
                      su.unblockUser(id);
+                     initializeData(member);
                 }
     }
     

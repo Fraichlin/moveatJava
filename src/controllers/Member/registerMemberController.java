@@ -8,6 +8,7 @@ package controllers.Member;
 import Enitities.Member;
 import Service.serviceUser;
 import Utils.globalMethods;
+import aymen.gui.Mail;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -18,11 +19,13 @@ import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
@@ -31,6 +34,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -114,16 +118,8 @@ ObservableList sexeList = FXCollections.observableArrayList();
 
     @FXML
     private void addMember(ActionEvent event) throws IOException{
-        if( !this.nameImage.getText().equals(""))
-            {                    
-                DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
-                LocalDateTime now = LocalDateTime.now();
-                this.nameImage.setText( date.format( now )+extImage );
-            }
-            else
-            {                   
-                this.nameImage.setText("defaultImage.png");
-            }
+        String imageId = UUID.randomUUID().toString();
+        
         Service.serviceUser su = new serviceUser();
         Member m = new Member();
         m.setEmail(email.getText());
@@ -131,18 +127,33 @@ ObservableList sexeList = FXCollections.observableArrayList();
         m.setPrenom(prenom.getText());
         m.setUsername(username.getText());
         m.setSexe(sexe.getValue().toString());
-        m.setPassword(password.getText());
-        m.setPhoto(nameImage.getText());
+        String hashedPassword = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
+        hashedPassword = hashedPassword.replace("2a", "2y");
+        m.setPassword(hashedPassword);
+        if(!this.nameImage.getText().equals(""))m.setPhoto(imageId+extImage);
+        if(this.nameImage.getText().equals(""))m.setPhoto("profilUser.png");
         m.setPoids(poids.getText());
         m.setTaille(taille.getText());
+        m.setIsVerified(0);
         m.setStatut("actived");
-        m.setType("member");
+        String[] role = {"[\"ROLE_MEMBER\"]"} ;
+        m.setType(role);
         su.addMember(m);
-        
-        File srcImage = new File( pathImage ) ;
-        Path desImage = Paths.get("E:\\projetsCodename\\moveat\\src\\ressources\\images\\" + this.nameImage.getText());
-        Files.copy( srcImage.toPath() , desImage  , StandardCopyOption.REPLACE_EXISTING) ;
        
+        if(!this.nameImage.getText().equals(""))
+            {                   
+                File srcImage = new File( pathImage ) ;
+                Path desImage = Paths.get("C:\\xampp\\htdocs\\moveat2\\public\\upload\\images\\" + imageId+extImage); 
+                Files.copy( srcImage.toPath() , desImage  , StandardCopyOption.REPLACE_EXISTING) ;
+            }
+        
+        
+//        Mail mail = new Mail();
+//                      mail.sendMail(m.getEmail(), "Inscription effectuée", "Bienvenue sur MovEat !!", "ngongangloic151@gmail.com", "lenovoa5600");
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Un mail de confirmation vous sera envoyé !!");
+        alert.setHeaderText("Incription effectuée !!");
+        alert.showAndWait();
     }
     
 }

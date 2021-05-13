@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aymen.gui.controller.nutritioniste.HomeController">
+    <children>
+      <BorderPane fx:id="borderPane" layoutY="54.0" prefHeight="714.0" prefWidth="212.0" style="-fx-background-color: #2F323A;" stylesheets="@style.css">
+         <top>
+            <AnchorPane maxWidth="195.0" prefHeight="149.0" prefWidth="195.0" style="-fx-background-color: #2F323A; -fx-translate-x: 1; -fx-max-width: 5; -fx-background-radius: 20; -fx-border-radius: 20;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imgProfil" fitHeight="82.0" fitWidth="107.0" layoutX="29.0" layoutY="7.0" onMouseClicked="#profilCoach" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../ressources/images/20210413071645.jpg" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Label fx:id="lbName" contentDisplay="CENTER" layoutX="3.0" layoutY="118.0" prefHeight="17.0" prefWidth="131.0" style="-fx-font-weight: bold; -fx-alignment: center;" text="NOM ET PRENOM" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="569.0" prefWidth="212.0" style="-fx-translate-x: -2;" BorderPane.alignment="CENTER">
+               <children>
+                  <ButtonBar layoutX="8.0" layoutY="26.0" prefHeight="40.0" prefWidth="204.0" style="-fx-translate-x: -10;">
+                    <buttons>
+                        <ImageView fitHeight="33.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../ressources/images/dashboard.png" />
+                           </image>
+                        </ImageView>
+                      <Button mnemonicParsing="false" onAction="#dashboard" prefHeight="31.0" prefWidth="144.0" style="-fx-alignment: left;" text="Tableau de bord" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                    </buttons>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ButtonBar>
+                  <ButtonBar layoutX="6.0" layoutY="73.0" prefHeight="40.0" prefWidth="205.0" style="-fx-translate-x: -10;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <buttons>
+                        <ImageView fitHeight="33.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../ressources/images/appointment.png" />
+                           </image>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#appointement" prefHeight="31.0" prefWidth="143.0" style="-fx-alignment: left;" text="Rendez-vous" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </buttons>
+                  </ButtonBar>
+                  <ButtonBar layoutX="7.0" layoutY="217.0" prefHeight="40.0" prefWidth="204.0" style="-fx-translate-x: -10;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ButtonBar>
+                  <ButtonBar layoutX="8.0" layoutY="265.0" prefHeight="40.0" prefWidth="204.0" style="-fx-translate-x: -10;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ButtonBar>
+                  <ButtonBar layoutX="7.0" layoutY="121.0" prefHeight="40.0" prefWidth="204.0" style="-fx-translate-x: -10;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <buttons>
+                        <ImageView fitHeight="33.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../ressources/images/program.png" />
+                           </image>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#program" prefHeight="31.0" prefWidth="144.0" style="-fx-alignment: left;" text="Programmes" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </buttons>
+                  </ButtonBar>
+                  <ButtonBar layoutX="8.0" layoutY="168.0" prefHeight="40.0" prefWidth="204.0" style="-fx-translate-x: -10;">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <buttons>
+                        <ImageView fitHeight="33.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../ressources/images/program.png" />
+                           </image>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#psyProgram" prefHeight="31.0" prefWidth="144.0" style="-fx-alignment: left;" text="Psy Programme" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </buttons>
+                  </ButtonBar>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <AnchorPane fx:id="bodyPane" layoutX="203.0" layoutY="54.0" prefHeight="707.0" prefWidth="1158.0" />
+      <BorderPane prefHeight="54.0" prefWidth="1366.0" style="-fx-background-color: #22242A;" stylesheets="@style.css">
+         <left>
+            <ImageView fitHeight="41.0" fitWidth="36.0" onMouseClicked="#menu" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 10;" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../ressources/images/menu.png" />
+               </image>
+            </ImageView>
+         </left>
+         <center>
+            <ImageView fitHeight="41.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -550;" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../ressources/images/MovEat.jpg" />
+               </image>
+            </ImageView>
+         </center>
+         <right>
+            <ImageView fx:id="btnLogout" fitHeight="33.0" fitWidth="39.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -10;" styleClass="nav-button" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../ressources/images/off.png" />
+               </image>
+            </ImageView>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -5,7 +5,8 @@
  */
 package Enitities;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -22,16 +23,19 @@ public class User {
     private String tel;
     private String statut;
     private String photo;
-    private String type;
+    private String[] type;
     private Date dateInscription;
     private Date dateBlocage;
     private Date dateDeblocage;
     private Date dateModification;
+    private int isVerified;
 
     
     public User() {
     }
-    public User(String email, String username, String password, String nom, String prenom, String sexe, String tel, String statut, String photo, String type, Date dateInscription) {
+
+    public User(int idUser, String email, String username, String password, String nom, String prenom, String sexe, String tel, String statut, String photo, String[] type, Date dateInscription, Date dateBlocage, Date dateDeblocage, Date dateModification, int isVerified) {
+        this.idUser = idUser;
         this.email = email;
         this.username = username;
         this.password = password;
@@ -43,7 +47,12 @@ public class User {
         this.photo = photo;
         this.type = type;
         this.dateInscription = dateInscription;
+        this.dateBlocage = dateBlocage;
+        this.dateDeblocage = dateDeblocage;
+        this.dateModification = dateModification;
+        this.isVerified = isVerified;
     }
+    
 
     public int getIdUser() {
         return idUser;
@@ -157,12 +166,20 @@ public class User {
         this.dateModification = dateModification;
     }
 
-    public String getType() {
+    public String[] getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String[] type) {
         this.type = type;
+    }
+
+    public int getIsVerified() {
+        return isVerified;
+    }
+
+    public void setIsVerified(int isVerified) {
+        this.isVerified = isVerified;
     }
     
     

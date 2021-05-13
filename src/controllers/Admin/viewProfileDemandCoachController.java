@@ -34,8 +34,6 @@ import javafx.stage.Stage;
 public class viewProfileDemandCoachController implements Initializable {
 
     @FXML
-    private Button btnBackHome;
-    @FXML
     private Label lbName;
     @FXML
     private Label lbSurname;
@@ -85,19 +83,13 @@ public class viewProfileDemandCoachController implements Initializable {
          lbAdress.setText(c.getAdresse());
          lbSpecialite.setText(c.getSpecialite());
          lbDateins.setText(c.getDateInscription().toString());
-         imageView.setImage(new Image("/ressources/images/"+c.getPhoto()));
+         imageView.setImage(new Image("file:C:\\xampp\\htdocs\\moveat2\\public\\upload\\images\\"+c.getPhoto()));
      }
     
 
     @FXML
-    private void btnBackHome(ActionEvent event) throws IOException{
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/views/admin/listDemandCoach.fxml"));
-          viewDemandCoachPane.getChildren().setAll(pane);
-    }
-
-    @FXML
     private void openFile(ActionEvent event) throws IOException{
-      File file = new File("D:\\projetsCodename\\moveat\\src\\ressources\\fichiers\\"+coach.getJustificatif());
+      File file = new File("C:\\xampp\\htdocs\\moveat2\\public\\upload\\fichiers\\"+coach.getJustificatif());
       Desktop.getDesktop().open(file);
     }
 

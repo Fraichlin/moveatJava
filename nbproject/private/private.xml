@@ -3,9 +3,36 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/projetsCodename/moveat/src/moveat/FXMLDocumentController.java</file>
-            <file>file:/E:/projetsCodename/moveat/src/controllers/AdminController.java</file>
-            <file>file:/E:/projetsCodename/moveat/src/views/admin/homeAdmin.fxml</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/HomeController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/controllers/Coach/registerCoachController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/tableViewSportController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/Home.fxml</file>
+            <file>file:/D:/projetsCodename/moveat/src/controllers/Admin/templateController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/controller/nutritioniste/AddPController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/Mail.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/controller/nutritioniste/UpdateController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/controllers/Coach/coachProfilController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/controllers/Member/registerMemberController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/Utils/MyConnexion.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/controllers/Admin/listDemandCoachController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/Programme.fxml</file>
+            <file>file:/D:/projetsCodename/moveat/src/views/member/homeMember.fxml</file>
+            <file>file:/D:/projetsCodename/moveat/src/Enitities/User.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/FXMLDocumentController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/RepairpasswordController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/AddController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/controllers/Admin/listCoachController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/UpdateController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/Design.fxml</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/Add.fxml</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/DesignController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/Update.fxml</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/tableViewSport.fxml</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/tableView.fxml</file>
+            <file>file:/D:/projetsCodename/moveat/src/controllers/Security/LoginController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/controllers/Admin/listMemberController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/controller/nutritioniste/HomeController.java</file>
+            <file>file:/D:/projetsCodename/moveat/src/aymen/gui/controller/nutritioniste/TableViewController.java</file>
         </group>
     </open-files>
 </project-private>

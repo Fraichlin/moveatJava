@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane id="AnchorPane" prefHeight="713.0" prefWidth="1219.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+      <Label layoutX="19.0" layoutY="17.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Contacts" />
+      <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
+      <VBox layoutX="71.0" layoutY="143.0" spacing="30.0">
+         <children>
+            <AnchorPane prefHeight="250.0" prefWidth="504.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #c3c3c3;">
+               <children>
+                  <Label layoutX="34.0" layoutY="52.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Dhouha Arfaoui" />
+                  <Label layoutX="34.0" layoutY="155.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Contact #">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="PHONE" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C;" text="Nutritionniste">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="125.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Address">
+                     <graphic>
+                        <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
+                     </graphic>
+                  </Label>
+                  <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                     <children>
+                        <Rating layoutX="14.0" layoutY="9.0" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
+                     </children>
+                  </Pane>
+                  <Circle fill="#e5e8eb" layoutX="399.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
+                  <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="339.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/avatar.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="250.0" prefWidth="504.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #c3c3c3;">
+               <children>
+                  <Label layoutX="34.0" layoutY="52.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Yassine Harbaoui" />
+                  <Label layoutX="34.0" layoutY="155.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Contact #">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="PHONE" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C;" text="Coach Sportif">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="125.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Address">
+                     <graphic>
+                        <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
+                     </graphic>
+                  </Label>
+                  <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                     <children>
+                        <Rating layoutX="14.0" layoutY="9.0" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
+                     </children>
+                  </Pane>
+                  <Circle fill="#e5e8eb" layoutX="399.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
+                  <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="339.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/avatar.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox layoutX="636.0" layoutY="143.0" spacing="30.0">
+         <children>
+            <AnchorPane prefHeight="250.0" prefWidth="504.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #c3c3c3;">
+               <children>
+                  <Label layoutX="34.0" layoutY="52.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Yosser Snoussi" />
+                  <Label layoutX="34.0" layoutY="155.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Contact #">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="PHONE" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C;" text="Psychothérapeute">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="125.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Address">
+                     <graphic>
+                        <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
+                     </graphic>
+                  </Label>
+                  <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                     <children>
+                        <Rating layoutX="14.0" layoutY="9.0" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
+                     </children>
+                  </Pane>
+                  <Circle fill="#e5e8eb" layoutX="399.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
+                  <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="339.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/avatar.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Pagination layoutX="469.0" layoutY="71.0" prefHeight="50.0" prefWidth="281.0" />
+      
+      
+   </children>
+</AnchorPane>

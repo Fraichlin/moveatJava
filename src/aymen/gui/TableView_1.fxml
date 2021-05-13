@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="548.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aymen.gui.controller.nutritioniste.TableViewController">
+   <children>
+      <TableView fx:id="TableProgramme" layoutX="28.0" layoutY="60.0" prefHeight="267.0" prefWidth="651.0">
+        <columns>
+          <TableColumn fx:id="col_Nom" prefWidth="75.0" text="Nom" />
+          <TableColumn fx:id="col_Type" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="col_Desciption" prefWidth="91.0" text="Description" />
+            <TableColumn fx:id="col_Image" prefWidth="81.0" text="Image" />
+            <TableColumn fx:id="col_Breakfast" prefWidth="101.0" text="Breakfast" />
+            <TableColumn fx:id="col_Lunch" prefWidth="110.0" text="Lunch" />
+            <TableColumn fx:id="col_Dinner" prefWidth="142.0" text="Dinner" />
+        </columns>
+      </TableView>
+      <Button layoutX="21.0" layoutY="341.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="130.0" text="Add" />
+      <Button layoutX="182.0" layoutY="341.0" mnemonicParsing="false" onAction="#Update" prefHeight="25.0" prefWidth="101.0" text="Update" />
+      <Button layoutX="327.0" layoutY="341.0" mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" prefWidth="90.0" text="Delete" />
+      <Button layoutX="476.0" layoutY="341.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="25.0" prefWidth="101.0" text="Refresh" />
+   </children>
+</AnchorPane>

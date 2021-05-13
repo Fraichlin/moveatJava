@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -8,19 +9,137 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" fx:id="viewProfileMemberPane" prefHeight="700.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="controllers.Admin.viewProfileMemberController">
+<AnchorPane id="AnchorPane" fx:id="viewProfileMemberPane" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #FFF3EC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin.viewProfileMemberController">
    <children>
-      <Label layoutX="320.0" layoutY="109.0" prefHeight="34.0" prefWidth="185.0" text="Détails membre" textAlignment="CENTER" textFill="#f57a07">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnBackHome" layoutX="66.0" layoutY="61.0" mnemonicParsing="false" onAction="#btnBackHome" text="retour" textFill="#294aee" />
-      <Line endX="538.0" layoutX="292.0" layoutY="152.0" startX="-282.0" />
-      <Label layoutX="352.0" layoutY="186.0" text="Nom :" textFill="#f57a07">
+      <Label layoutX="47.0" layoutY="364.0" text="Nom :" textFill="#f57a07">
          <font>
             <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="403.0" text="Prenom :" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="479.0" text="Email :" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="523.0" text="Sexe :" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="569.0" text="Poids :" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="608.0" text="Taille :" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="411.0" text="Date inscription :" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbName" layoutX="118.0" layoutY="365.0" prefHeight="17.0" prefWidth="282.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbSurname" layoutX="141.0" layoutY="404.0" prefHeight="17.0" prefWidth="282.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbEmail" layoutX="118.0" layoutY="480.0" prefHeight="17.0" prefWidth="282.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbSex" layoutX="118.0" layoutY="524.0" prefHeight="17.0" prefWidth="282.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbPoids" layoutX="118.0" layoutY="570.0" prefHeight="17.0" prefWidth="282.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbTaille" layoutX="117.0" layoutY="609.0" prefHeight="17.0" prefWidth="282.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbDateins" layoutX="539.0" layoutY="412.0" prefHeight="20.0" prefWidth="167.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="349.0" layoutY="597.0" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="450.0" text="Dernière date modification :" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="400.0" layoutY="490.0" text="Date blocage :" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="400.0" layoutY="532.0" text="Date déblocage :" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbDatemod" layoutX="614.0" layoutY="451.0" prefHeight="20.0" prefWidth="185.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbDateblock" layoutX="527.0" layoutY="491.0" prefHeight="20.0" prefWidth="185.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbDateunblock" layoutX="538.0" layoutY="532.0" prefHeight="20.0" prefWidth="185.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="373.0" prefWidth="60.0" text="Statut :" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="442.0" text="Username :" textFill="#f57a07">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbUsername" layoutX="149.0" layoutY="443.0" prefHeight="20.0" prefWidth="238.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbStatut" layoutX="481.0" layoutY="374.0" prefHeight="20.0" prefWidth="167.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Line endX="584.0" layoutX="293.0" layoutY="109.0" startX="-293.0" stroke="#ff5619" />
+      <Label layoutX="73.0" layoutY="55.0" prefHeight="34.0" prefWidth="180.0" text="Coach- Profil" textAlignment="CENTER" textFill="#ff5619">
+         <font>
+            <Font size="23.0" />
          </font>
       </Label>
       <ImageView fx:id="imageView" fitHeight="184.0" fitWidth="219.0" layoutX="66.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
@@ -28,128 +147,29 @@
             <Image url="@../../../../../Images/watchdog.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="352.0" layoutY="225.0" text="Prenom :" textFill="#f57a07">
+      <Button fx:id="btnUnblock" layoutX="518.0" layoutY="237.0" mnemonicParsing="false" onAction="#unblockMember" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #159BFF;" text="Débloquer" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
-      </Label>
-      <Label layoutX="351.0" layoutY="301.0" text="Email :" textFill="#f57a07">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnBlock" layoutX="343.0" layoutY="237.0" mnemonicParsing="false" onAction="#blockMember" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #ff5619;" text="Bloquer" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
-      </Label>
-      <Label layoutX="353.0" layoutY="345.0" text="Sexe :" textFill="#f57a07">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnDelete" layoutX="693.0" layoutY="237.0" mnemonicParsing="false" onAction="#deleteMember" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: red;" text="Supprimer" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
-      </Label>
-      <Label layoutX="348.0" layoutY="391.0" text="Poids :" textFill="#f57a07">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="349.0" layoutY="433.0" text="Taille :" textFill="#f57a07">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="66.0" layoutY="559.0" text="Date inscription :" textFill="#f57a07">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbName" layoutX="423.0" layoutY="187.0" prefHeight="17.0" prefWidth="282.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbSurname" layoutX="446.0" layoutY="226.0" prefHeight="17.0" prefWidth="282.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbEmail" layoutX="423.0" layoutY="302.0" prefHeight="17.0" prefWidth="282.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbSex" layoutX="423.0" layoutY="346.0" prefHeight="17.0" prefWidth="282.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbPoids" layoutX="423.0" layoutY="392.0" prefHeight="17.0" prefWidth="282.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbTaille" layoutX="423.0" layoutY="434.0" prefHeight="17.0" prefWidth="282.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbDateins" layoutX="203.0" layoutY="560.0" prefHeight="17.0" prefWidth="282.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnBlock" layoutX="587.0" layoutY="185.0" mnemonicParsing="false" onAction="#blockMember" prefHeight="25.0" prefWidth="77.0" text="Bloquer" textFill="#f50707" />
-      <Button fx:id="btnDelete" layoutX="704.0" layoutY="185.0" mnemonicParsing="false" onAction="#deleteMember" prefHeight="25.0" prefWidth="83.0" text="Supprimer" textFill="#f50707" />
-      <Label layoutX="349.0" layoutY="597.0" textFill="#f57a07">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="346.0" layoutY="477.0" text="Dernière date modification :" textFill="#f57a07">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="344.0" layoutY="520.0" text="Date blocage :" textFill="#f57a07">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="344.0" layoutY="562.0" text="Date déblocage :" textFill="#f57a07">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbDatemod" layoutX="558.0" layoutY="478.0" prefHeight="20.0" prefWidth="185.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbDateblock" layoutX="471.0" layoutY="521.0" prefHeight="20.0" prefWidth="185.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbDateunblock" layoutX="482.0" layoutY="562.0" prefHeight="20.0" prefWidth="185.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="66.0" layoutY="521.0" prefWidth="60.0" text="Statut :" textFill="#f57a07">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="351.0" layoutY="264.0" text="Username :" textFill="#f57a07">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbUsername" layoutX="454.0" layoutY="265.0" prefHeight="17.0" prefWidth="282.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbStatut" layoutX="145.0" layoutY="522.0" prefHeight="20.0" prefWidth="167.0" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnUnblock" layoutX="651.0" layoutY="234.0" mnemonicParsing="false" onAction="#unblockMember" prefHeight="25.0" prefWidth="77.0" text="Débloquer" textFill="#294aee" />
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

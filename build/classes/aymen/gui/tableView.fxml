@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="713.0" prefWidth="1158.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aymen.gui.TableViewController">
+    <stylesheets>
+        <URL value="@tableview.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="29.0" layoutY="27.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Liste RDV" />
+      <Separator layoutX="13.0" layoutY="65.0" prefHeight="4.0" prefWidth="1226.0" />
+      <TableView fx:id="tvappointments" layoutX="14.0" layoutY="184.0" prefHeight="519.0" prefWidth="1161.0" style="-fx-background-color: white;">
+         <columns>
+            <TableColumn fx:id="colnom" prefWidth="137.0" text="nom" />
+            <TableColumn fx:id="colprenom" prefWidth="153.0" text="prenom" />
+            <TableColumn fx:id="colemail" prefWidth="146.0" text="email" />
+            <TableColumn fx:id="coltel" minWidth="0.0" prefWidth="172.0" text="tel" />
+            <TableColumn fx:id="coldate" prefWidth="117.0" text="date" />
+            <TableColumn fx:id="coltime" prefWidth="108.0" text="time" />
+            <TableColumn fx:id="colmessage" prefWidth="124.0" text="message" />
+            <TableColumn fx:id="editcol" prefWidth="249.0" text="edit" />
+         </columns>
+      </TableView>
+      <HBox alignment="CENTER" layoutX="602.0" layoutY="-1.0" prefHeight="36.0" prefWidth="37.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <FontAwesomeIconView glyphName="CLOSE" onMouseClicked="#close" size="20" styleClass="btn" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="33.0" layoutY="96.0" prefHeight="76.0" prefWidth="200.0">
+         <children>
+            <FontAwesomeIconView fill="#2196f3" glyphName="USER_PLUS" onMouseClicked="#getAddView" size="45" styleClass="btn">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView fill="#00e676" glyphName="REFRESH" layoutX="10.0" layoutY="65.0" onMouseClicked="#refreshTable" size="45" styleClass="btn">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView fill="#455a64" glyphName="PRINT" layoutX="62.0" layoutY="65.0" onMouseClicked="#print" size="45" styleClass="btn" text="" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

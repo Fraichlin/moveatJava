@@ -7,11 +7,14 @@ package controllers.Admin;
 
 import Enitities.Coach;
 import Service.serviceUser;
+import Utils.globalMethods;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +28,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -35,8 +39,6 @@ import javafx.stage.Stage;
  */
 public class viewProfileCoachController implements Initializable {
 
-    @FXML
-    private Button btnBackHome;
     @FXML
     private ImageView imageView;
     @FXML
@@ -58,8 +60,6 @@ public class viewProfileCoachController implements Initializable {
     @FXML
     private Button btnFile;
     @FXML
-    private Button btnValid;
-    @FXML
     private Button btnDelete;
     @FXML
     private Label lbDateval;
@@ -80,6 +80,9 @@ public class viewProfileCoachController implements Initializable {
     @FXML
     private AnchorPane viewProfileCoachPane;
      Service.serviceUser su = new serviceUser();
+    @FXML
+    private Button btnBlock;
+    globalMethods g = new globalMethods();
     /**
      * Initializes the controller class.
      */
@@ -114,32 +117,22 @@ public class viewProfileCoachController implements Initializable {
             if(c.getDateDeblocage()==null){
                 lbDateunblock.setText("/");
             }else lbDateunblock.setText(c.getDateDeblocage().toString());
-            imageView.setImage(new Image("/ressources/images/"+c.getPhoto()));
+            imageView.setImage(new Image("file:C:\\xampp\\htdocs\\moveat2\\public\\upload\\images\\"+c.getPhoto()));
         }    
 
     @FXML
-    private void btnBackHome(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation( getClass().getResource("/views/admin/listCoach.fxml") ) ;
-        Parent itemUpdateViewParent = loader.load();
-        Scene homeViewScene = new Scene( itemUpdateViewParent ) ;
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene( homeViewScene );
-        window.show();
-    }
-
-    @FXML
     private void openFile(ActionEvent event) throws IOException{
-         File file = new File("D:\\projetsCodename\\moveat\\src\\ressources\\fichiers\\"+coach.getJustificatif());
+         File file = new File("C:\\xampp\\htdocs\\moveat2\\public\\upload\\fichiers\\"+coach.getJustificatif());
       Desktop.getDesktop().open(file);
     }
 
     @FXML
-    private void blockCoach(ActionEvent event) {
+    private void blockCoach(ActionEvent event) throws Exception {
          Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bloquer le coach ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
                 alert.showAndWait();
                 if (alert.getResult() == ButtonType.YES) {
                      su.blockUser(id);
+                     initializeData(coach);
                 }
     }
 
@@ -153,12 +146,14 @@ public class viewProfileCoachController implements Initializable {
     }
 
     @FXML
-    private void unblockCoach(ActionEvent event) {
+    private void unblockCoach(ActionEvent event) throws Exception {
          Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Débloquer le coach ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
                 alert.showAndWait();
                 if (alert.getResult() == ButtonType.YES) {
                      su.unblockUser(id);
+                     initializeData(coach);
                 }
     }
+
     
 }

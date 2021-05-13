@@ -8,18 +8,18 @@ and open the template in the editor.
     Author     : NGONGANG Loic F
 */
 
-Button{
+.btnSideMenu{
     -fx-background-color:  #159BFF;
 }
-Button:hover{
+.btnSideMenu:hover{
     -fx-background-color: #073355;
     -fx-background-radius: 3px, 3px, 2px, 1px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
     -fx-text-fill: black;
 }
-Button:focused{
+.btnSideMenu:focused{
     -fx-background-color: #073355;
     -fx-background-radius: 3px, 3px, 2px, 1px;
     -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }

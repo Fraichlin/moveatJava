@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author NGONGANG Loic F
  */
 public class MyConnexion {
-    final static String url = "jdbc:mysql://127.0.0.1:3306/moveatjava";
+    final static String url = "jdbc:mysql://127.0.0.1:3306/moveat";
     final static String login = "root";
     final static String password = "Lenovoa5600";
     static MyConnexion instance = null;

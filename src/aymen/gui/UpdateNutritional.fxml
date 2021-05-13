@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aymen.gui.controller.nutritioniste.UpdateController">
+     <children>
+      <Button layoutX="259.0" layoutY="334.0" mnemonicParsing="false" onAction="#ModifierProg" style="-fx-background-color: green; -fx-background-radius: 45;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="133.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier le programme :">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Text>
+      <Label layoutX="40.0" layoutY="56.0" prefHeight="17.0" prefWidth="61.0" text="Nom" />
+      <TextField fx:id="tfNom" layoutX="95.0" layoutY="52.0" />
+      <Label layoutX="24.0" layoutY="134.0" prefHeight="17.0" prefWidth="61.0" text="Description" />
+      <TextField fx:id="tfDescription" layoutX="95.0" layoutY="130.0" />
+      <Label layoutX="24.0" layoutY="214.0" prefHeight="17.0" prefWidth="61.0" text="Breakfast" />
+      <TextField fx:id="tfBreakfast" layoutX="95.0" layoutY="210.0" />
+      <Label layoutX="24.0" layoutY="270.0" prefHeight="17.0" prefWidth="61.0" text="Lunch" />
+      <TextField fx:id="tfLunch" layoutX="95.0" layoutY="266.0" />
+      <TextField fx:id="tfDinner" layoutX="95.0" layoutY="309.0" />
+      <Label layoutX="24.0" layoutY="313.0" prefHeight="17.0" prefWidth="61.0" text="Dinner" />
+      <Label layoutX="40.0" layoutY="93.0" prefHeight="17.0" prefWidth="61.0" text="Type" />
+      <Label layoutX="24.0" layoutY="176.0" prefHeight="17.0" prefWidth="61.0" text="Image" />
+      <ChoiceBox fx:id="typeButton" layoutX="95.0" layoutY="89.0" prefWidth="150.0" />
+      <Button layoutX="109.0" layoutY="172.0" mnemonicParsing="false" onAction="#choisirImage" prefHeight="25.0" prefWidth="133.0" text="choisir Image" />
+      <TextField fx:id="nameImage" layoutX="242.0" layoutY="172.0" prefHeight="25.0" prefWidth="116.0" />
+   </children>
+</AnchorPane>

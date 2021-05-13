@@ -8,7 +8,7 @@ package controllers.Coach;
 import Enitities.Coach;
 import Utils.globalMethods;
 import Service.serviceUser;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import aymen.gui.Mail;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -19,12 +19,14 @@ import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
@@ -33,6 +35,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -149,27 +152,9 @@ public class registerCoachController implements Initializable {
     
     @FXML
     private void addCoach(ActionEvent event) throws IOException{
+        String imageId = UUID.randomUUID().toString();
+        String fileId = UUID.randomUUID().toString();
         
-        if( !this.nameImage.getText().equals(""))
-            {                    
-                DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
-                LocalDateTime now = LocalDateTime.now();
-                this.nameImage.setText( date.format( now )+extImage );
-            }
-            else
-            {                   
-                this.nameImage.setText("defaultImage.png");
-            }
-        if( !this.namePdf.getText().equals(""))
-            {                    
-                DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
-                LocalDateTime now = LocalDateTime.now();
-                this.namePdf.setText( date.format( now )+extPdf );
-            }
-            else
-            {                   
-                this.namePdf.setText("defaultImage.png");
-            }
         Service.serviceUser su = new serviceUser();
         Coach c = new Coach();
         c.setEmail(email.getText());
@@ -180,19 +165,30 @@ public class registerCoachController implements Initializable {
         c.setSpecialite(specialite.getValue().toString());
         c.setTel(tel.getText());
         c.setAdresse(adresse.getText());
-        c.setPassword(password.getText());
-        c.setPhoto(nameImage.getText());
-        c.setJustificatif(namePdf.getText());
+        String hashedPassword = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
+        hashedPassword = hashedPassword.replace("2a", "2y");
+        c.setPassword(hashedPassword);
+        c.setPhoto(imageId+extImage);
+        c.setJustificatif(fileId+extPdf);
         c.setStatut("nonactived");
-        c.setType("coach");
+        String[] role = {"[\"ROLE_COACH\"]"};
+        c.setType(role);
+        c.setIsVerified(0);
         su.addCoach(c);
         
         File srcImage = new File( pathImage ) ;
-        Path desImage = Paths.get("E:\\projetsCodename\\moveat\\src\\ressources\\images\\" + this.nameImage.getText());
+        Path desImage = Paths.get("C:\\xampp\\htdocs\\moveat2\\public\\upload\\images\\" +imageId+extImage);
         Files.copy( srcImage.toPath() , desImage  , StandardCopyOption.REPLACE_EXISTING) ;
         File srcPdf = new File( pathPdf ) ;
-        Path desPdf = Paths.get("E:\\projetsCodename\\moveat\\src\\ressources\\fichiers\\" + this.namePdf.getText());
+        Path desPdf = Paths.get("C:\\xampp\\htdocs\\moveat2\\public\\upload\\fichiers\\" +fileId+extPdf);
         Files.copy( srcPdf.toPath() , desPdf  , StandardCopyOption.REPLACE_EXISTING) ;
+         
+        Mail mail = new Mail();
+                      mail.sendMail(c.getEmail(), "Inscription effectuée", "Bienvenue sur MovEat, votre inscription doit etre validée avant que vous ne puissiez vous connecter."
+                              + " Un mail de confirmation vous sera envoyé .", "ngongangloic151@gmail.com", "lenovoa5600");
+          Alert alert = new Alert(Alert.AlertType.INFORMATION, "Un mail de confirmation vous sera envoyé pour la validation de votre inscription  !!");
+          alert.setHeaderText("Incription effectuée !!");
+          alert.showAndWait();
         
     }
 
